@@ -15,8 +15,6 @@ __pycache__/
 # Vector database (heavy files)
 vectorstore/
 
-# Local resource files (optional if private data)
-app/resource/
 
 # OS files
 .DS_Store
