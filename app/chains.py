@@ -43,9 +43,15 @@ class Chain:
         except OutputParserException:
             raise OutputParserException("Unable to parse job.")
 
+        if isinstance(parsed, str):
+            raise OutputParserException("Invalid JSON returned by model.")
+
         return parsed
 
     def write_mail(self, job, links):
+        if isinstance(job, str):
+            raise ValueError("Job data is string, expected dictionary.")
+
         prompt_email = PromptTemplate.from_template(
             """
             ### JOB DESCRIPTION:
